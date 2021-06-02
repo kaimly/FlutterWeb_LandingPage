@@ -19,7 +19,7 @@ class BottomContainer extends StatelessWidget {
               const SizedBox(height: 30),
               Center(
                 child: Text("Get Free Demo",
-                    style: Theme.of(context).textTheme.headline5!.merge(
+                    style: Theme.of(context).textTheme.headline6!.merge(
                         TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Theme.of(context).primaryColor))),
@@ -28,7 +28,7 @@ class BottomContainer extends StatelessWidget {
                 height: 60,
               ),
               Container(
-                width: 400,
+                width: MediaQuery.of(context).size.width / 2,
                 color: Colors.white,
                 child: TextFormField(
                   decoration: InputDecoration(
@@ -47,9 +47,9 @@ class BottomContainer extends StatelessWidget {
               ),
               Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                      const EdgeInsets.symmetric(horizontal: 27, vertical: 8),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(85),
+                      borderRadius: BorderRadius.circular(81),
                       color: Theme.of(context).primaryColor),
                   child: TextButton(
                     onPressed: () {},

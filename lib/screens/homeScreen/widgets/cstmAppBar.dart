@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-PreferredSizeWidget customAppBar({required BuildContext context}) {
+PreferredSizeWidget customAppBarDesktop({required BuildContext context}) {
   return AppBar(
     title: Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -22,6 +22,17 @@ PreferredSizeWidget customAppBar({required BuildContext context}) {
         ),
         Text("Login", style: Theme.of(context).primaryTextTheme.headline6)
       ],
+    ),
+    // actions: [],
+  );
+}
+
+PreferredSizeWidget customAppBarMobile({required BuildContext context}) {
+  return AppBar(
+    centerTitle: true,
+    title: Text(
+      "Robigo",
+      style: Theme.of(context).primaryTextTheme.headline6,
     ),
     // actions: [],
   );
