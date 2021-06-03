@@ -51,26 +51,32 @@ class CstmmDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       //!right padding?
-      padding: const EdgeInsets.only(
-        left: 60,
-      ),
+      // height: 600,
+      padding: const EdgeInsets.only(left: 60, bottom: 40),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
-            children: [
-              const SizedBox(
-                height: 120,
-              ),
-              CstmText(
-                platform: "WEB",
-              ),
-            ],
+          Expanded(
+            flex: 4,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 120,
+                ),
+                CstmText(
+                  platform: "WEB",
+                ),
+              ],
+            ),
           ),
-          Image.asset(
-            "assets/images/fourthb.png",
-            scale: 1,
+          Expanded(
+            flex: 3,
+            child: Image.asset(
+              "assets/images/fourthb.png",
+              scale: 1,
+            ),
           ),
           //  ScreenTypeLayout.builder(
           //   desktop: (ctx) => Image.asset(

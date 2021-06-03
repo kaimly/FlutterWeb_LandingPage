@@ -10,10 +10,9 @@ class SecondContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
-      mobile: (ctx) => Cstmobile(),
-      desktop: (ctx) => CstmDesk(),
-      // tablet: (ctx) => SizedBox(),
-    );
+        mobile: (ctx) => Cstmobile(),
+        desktop: (ctx) => CstmDesk(),
+        tablet: (ctx) => CstmDesk());
   }
 }
 
@@ -25,6 +24,7 @@ class CstmDesk extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 60),
       color: scaffoldSecondaryColor,
       child: Column(
@@ -40,14 +40,15 @@ class CstmDesk extends StatelessWidget {
             "Experience",
             style: Theme.of(context).textTheme.headline6,
           ),
-          const SizedBox(
-            height: 40,
-          ),
+          // const SizedBox(
+          //   height: 40,
+          // ),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CustomImages(imageUrl: "second"),
-              CustomImages(imageUrl: "third")
+              Expanded(flex: 2, child: CustomImages(imageUrl: "second")),
+              Expanded(flex: 2, child: CustomImages(imageUrl: "third"))
             ],
           ),
         ],
@@ -67,6 +68,7 @@ class Cstmobile extends StatelessWidget {
       // padding: const EdgeInsets.symmetric(horizontal: 12),
       color: scaffoldSecondaryColor,
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(
             height: 10,

@@ -8,6 +8,7 @@ class PaymentContainer extends StatelessWidget {
     return ScreenTypeLayout.builder(
       mobile: (ctx) => XustomMobile(),
       desktop: (ctx) => XustomDeskTop(),
+      tablet: (ctx) => XustomDeskTop(),
     );
   }
 }

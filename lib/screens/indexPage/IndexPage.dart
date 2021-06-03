@@ -73,7 +73,7 @@ Widget body() {
         children: [
           TopContainer(),
           SecondContainer(),
-          // CouponContainer(),
+          CouponContainer(),
           PaymentContainer(),
           BottomContainer(),
         ],
