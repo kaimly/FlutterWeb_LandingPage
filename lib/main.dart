@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:robigo/screens/homeScreen/homeScreen.dart';
+import 'package:robigo/screens/homeScreen/HomeScreen.dart';
+import 'package:robigo/screens/indexPage/IndexPage.dart';
 
 import 'themes/theme.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Robigo',
       debugShowCheckedModeBanner: false,
       theme: themes(),
-      home: HomeScreen(),
+      home: IndexPage(),
     );
   }
 }

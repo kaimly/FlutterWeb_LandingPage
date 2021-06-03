@@ -14,6 +14,11 @@ TextTheme accentTextTheme() => TextTheme(
           fontFamily: 'poppins',
           color: Colors.white,
           fontWeight: FontWeight.w300),
+      bodyText2: TextStyle(
+          fontFamily: 'poppins',
+          color: Colors.white,
+          fontSize: 12,
+          fontWeight: FontWeight.w300),
       caption: TextStyle(
           fontFamily: 'poppins',
           color: Colors.white,

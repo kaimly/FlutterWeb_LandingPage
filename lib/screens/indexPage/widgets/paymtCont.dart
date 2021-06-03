@@ -24,30 +24,36 @@ class XustomDeskTop extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 60),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 100,
-              ),
-              Text(
-                "Payment Simplified",
-                style: Theme.of(context).textTheme.headline4!.merge(TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).primaryColor)),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              TextArea()
-            ],
+          Expanded(
+            flex: 6,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 100,
+                ),
+                Text(
+                  "Payment Simplified",
+                  style: Theme.of(context).textTheme.headline4!.merge(TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Theme.of(context).primaryColor)),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                TextArea()
+              ],
+            ),
           ),
-          Image.asset(
-            "assets/images/fifith.png",
-            scale: 1.5,
+          Expanded(
+            flex: 6,
+            child: Image.asset(
+              "assets/images/fifith.png",
+              scale: 1.5,
+            ),
           )
         ],
       ),
@@ -63,7 +69,7 @@ class XustomMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       color: scaffoldSecondaryColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,9 +85,12 @@ class XustomMobile extends StatelessWidget {
             height: 10,
           ),
           TextArea(),
+          const SizedBox(
+            height: 10,
+          ),
           Image.asset(
             "assets/images/fifith.png",
-            scale: 2.0,
+            scale: 1.5,
           )
         ],
       ),
@@ -105,7 +114,7 @@ class TextArea extends StatelessWidget {
           TextSpan(text: "and Coupons\n"),
           TextSpan(
               text: "0% Commission",
-              style: Theme.of(context).primaryTextTheme.subtitle1)
+              style: Theme.of(context).primaryTextTheme.bodyText1)
         ]));
   }
 }

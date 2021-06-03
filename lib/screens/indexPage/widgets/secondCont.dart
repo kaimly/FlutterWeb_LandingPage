@@ -12,6 +12,7 @@ class SecondContainer extends StatelessWidget {
     return ScreenTypeLayout.builder(
       mobile: (ctx) => Cstmobile(),
       desktop: (ctx) => CstmDesk(),
+      // tablet: (ctx) => SizedBox(),
     );
   }
 }
@@ -36,7 +37,7 @@ class CstmDesk extends StatelessWidget {
             style: Theme.of(context).textTheme.headline6,
           ),
           Text(
-            " Experience",
+            "Experience",
             style: Theme.of(context).textTheme.headline6,
           ),
           const SizedBox(
@@ -45,22 +46,8 @@ class CstmDesk extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const SizedBox(),
-              Container(
-                  // height: 600,
-                  // width: 800,
-                  child: Image.asset(
-                "assets/images/second.png",
-                scale: 1.5,
-              )),
-              Container(
-                  // height: 600,
-                  // width: 800,
-                  child: Image.asset(
-                "assets/images/third.png",
-                scale: 1.5,
-              )),
-              const SizedBox(),
+              CustomImages(imageUrl: "second"),
+              CustomImages(imageUrl: "third")
             ],
           ),
         ],
@@ -77,7 +64,7 @@ class Cstmobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
+      // padding: const EdgeInsets.symmetric(horizontal: 12),
       color: scaffoldSecondaryColor,
       child: Column(
         children: [
@@ -95,23 +82,27 @@ class Cstmobile extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          Container(
-              padding: EdgeInsets.all(10),
-              child: Image.asset(
-                "assets/images/second.png",
-                // scale: 2.5,
-              )),
-          Container(
-              // height: 600,
-
-              padding: EdgeInsets.all(10),
-              child: Image.asset(
-                "assets/images/third.png",
-                // scale: 2.5,
-              )),
+          CustomImages(imageUrl: "second"),
+          CustomImages(imageUrl: "third"),
           const SizedBox(),
         ],
       ),
     );
+  }
+}
+
+class CustomImages extends StatelessWidget {
+  final String imageUrl;
+  CustomImages({required this.imageUrl});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        // height: 600,
+        // width: 800,
+        child: Image.asset(
+      "assets/images/$imageUrl.png",
+      scale: 1.5,
+    ));
   }
 }

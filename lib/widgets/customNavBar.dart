@@ -15,19 +15,31 @@ class CustomBottomNavBar extends StatelessWidget {
             style: Theme.of(context).primaryTextTheme.headline6,
           ),
           const SizedBox(
-            width: 10,
+            width: 30,
           ),
           NavBarItem(
             title: "About",
           ),
+          const SizedBox(
+            width: 20,
+          ),
           NavBarItem(
             title: "Terms & Conditions",
+          ),
+          const SizedBox(
+            width: 20,
           ),
           NavBarItem(
             title: "Privacy Policy",
           ),
+          const SizedBox(
+            width: 20,
+          ),
           NavBarItem(
             title: "Refund Policy",
+          ),
+          const SizedBox(
+            width: 20,
           ),
           NavBarItem(
             title: "Contact Us",

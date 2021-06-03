@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
+import 'package:robigo/widgets/customTextFormField.dart';
 
 class BottomContainer extends StatelessWidget {
   @override
@@ -27,18 +29,20 @@ class BottomContainer extends StatelessWidget {
               const SizedBox(
                 height: 60,
               ),
-              Container(
-                width: MediaQuery.of(context).size.width / 2,
-                color: Colors.white,
-                child: TextFormField(
-                  decoration: InputDecoration(
+              ScreenTypeLayout.builder(
+                mobile: (ctx) => Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.white,
+                  child: CustomTextFormField(
                     hintText: "Email",
-                    border: new OutlineInputBorder(
-                      borderRadius: const BorderRadius.all(
-                        const Radius.circular(10.0),
-                      ),
-                    ),
-                    contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                  ),
+                ),
+                desktop: (ctx) => Container(
+                  width: MediaQuery.of(context).size.width / 3,
+                  color: Colors.white,
+                  child: CustomTextFormField(
+                    hintText: "Email",
                   ),
                 ),
               ),
@@ -49,7 +53,7 @@ class BottomContainer extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 27, vertical: 8),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(81),
+                      borderRadius: BorderRadius.circular(73),
                       color: Theme.of(context).primaryColor),
                   child: TextButton(
                     onPressed: () {},
