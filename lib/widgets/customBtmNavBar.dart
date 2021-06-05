@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//* for index page
 class CustomBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

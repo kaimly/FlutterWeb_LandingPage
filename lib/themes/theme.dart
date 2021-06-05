@@ -6,6 +6,11 @@ import 'textTheme.dart';
 final scaffoldSecondaryColor = Color.fromRGBO(246, 246, 246, 1);
 final acceentColor = Color.fromRGBO(241, 159, 2, 1);
 final black = Colors.black;
+final grey = Colors.grey;
+final successColor = Colors.green;
+final linearGradient1 = Color.fromRGBO(241, 159, 2, 1);
+final linearGradient2 = Color.fromRGBO(250, 201, 99, 1);
+final textformfieldfillcolor = Color.fromRGBO(232, 232, 232, 1);
 
 ThemeData themes() {
   return ThemeData(

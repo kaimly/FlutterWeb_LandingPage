@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-import 'package:robigo/widgets/customNavBar.dart';
+import 'package:robigo/widgets/customBtmNavBar.dart';
 import './widgets/allwidgets.dart';
 
 class IndexPage extends StatelessWidget {

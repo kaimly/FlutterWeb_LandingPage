@@ -1,7 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:robigo/themes/theme.dart';
-import 'package:robigo/widgets/customTextFormField.dart';
+
+import '../../widgets/allWIdgets.dart';
+
+import 'widgets/categoryWise.dart';
+import 'widgets/customSwitch.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -9,16 +14,69 @@ class HomeScreen extends StatelessWidget {
     return ScreenTypeLayout.builder(
       desktop: (ctx) => SizedBox(),
       mobile: (ctx) => Scaffold(
+        bottomNavigationBar: CustomBtmNavbarHomePage(),
         appBar: customAppBar(context),
         body: SafeArea(
             child: SingleChildScrollView(
-          // padding: const EdgeInsets.symmetric(horizontal: 12),
+          padding: const EdgeInsets.only(left: 12),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: CustomTextFormField(hintText: "Search"),
-              )
+                padding: const EdgeInsets.only(
+                  top: 20,
+                  right: 12,
+                ),
+                child: CustomTextFormField(
+                  hintText: "Search",
+                  isSearchIcon: true,
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.only(top: 20, bottom: 20),
+                // color: Colors.red,
+                height: 180,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    CustomListIteem(),
+                    CustomListIteem(),
+                    CustomListIteem(),
+                  ],
+                ),
+              ),
+              ChipsOptions(
+                onTap: (e) {
+                  print("object");
+                },
+                defaultPadding: EdgeInsets.all(0),
+                defaultSelected: 3,
+                values: ["All", "Spicy", "Continental", "Arabian Food"],
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Padding(
+                  padding: const EdgeInsets.only(right: 12, bottom: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        "Veg",
+                        style: Theme.of(context).primaryTextTheme.bodyText1,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      CustomflutterSwitch(),
+                    ],
+                  )),
+              CategoryWise(
+                categoryName: "Spicy",
+              ),
+              CategoryWise(
+                categoryName: "Continental",
+              ),
             ],
           ),
         )),
@@ -30,16 +88,16 @@ class HomeScreen extends StatelessWidget {
     return PreferredSize(
       preferredSize: Size.fromHeight(70),
       child: AppBar(
-        backgroundColor: black,
+        backgroundColor: Theme.of(context).accentColor,
         leadingWidth: 66,
         leading: Container(
           margin: EdgeInsets.only(left: 10, top: 10),
-          child: CircleAvatar(
-            radius: 30,
-            backgroundColor: Theme.of(context).accentColor,
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(6)),
             child: Icon(
               Icons.home,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
         ),
@@ -47,25 +105,77 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Dope Foooodie",
-              style: Theme.of(context).accentTextTheme.headline6,
+              "Calicut notebook",
+              style: Theme.of(context).textTheme.headline6,
             ),
-            const SizedBox(
-              height: 4,
+            // const SizedBox(
+            //   height: 4,
+            // ),
+            Text(
+              "Kochi,Kerala",
+              style: Theme.of(context).primaryTextTheme.bodyText1,
             ),
-            Row(
-              children: [
-                Icon(
-                  Icons.location_on,
-                  size: 12,
-                ),
-                Text(
-                  "Kochi,Kerala",
-                  style: Theme.of(context).accentTextTheme.bodyText1,
-                ),
-              ],
-            )
           ],
+        ),
+      ),
+    );
+  }
+}
+
+// class CustomFoodItem extends StatelessWidget {
+//   const CustomFoodItem({
+//     Key? key,
+//   }) : super(key: key);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       height: 300,
+//       decoration: BoxDecoration(
+//         color: Colors.yellow,
+//         borderRadius: BorderRadius.circular(6),
+//       ),
+//       child: Column(
+//         children: [
+//           Container(
+//             // color: Colors.blue,
+//             height: 150,
+//             width: 200,
+//             child: Stack(
+//               // fit: StackFit.expand,
+//               children: [
+//                 Image.asset(
+//                   "assets/images/sample1.png",
+//                   fit: BoxFit.cover,
+//                 ),
+//                 Positioned(
+//                     left: 5, top: 5, child: foodIndicator(color: Colors.green)),
+//               ],
+//             ),
+//           ),
+//           const SizedBox(height: 10),
+//           Text("Veggies in Chilli-Garlic Sauce")
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+class CustomListIteem extends StatelessWidget {
+  const CustomListIteem({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width - 120,
+      margin: const EdgeInsets.only(right: 20),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: Image.asset(
+          "assets/images/sample1.png",
+          fit: BoxFit.cover,
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:robigo/widgets/CstmRoundedBtn.dart';
 import 'package:robigo/widgets/customTextFormField.dart';
 
 class BottomContainer extends StatelessWidget {
@@ -49,20 +50,13 @@ class BottomContainer extends StatelessWidget {
               const SizedBox(
                 height: 60,
               ),
-              Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 27, vertical: 8),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(73),
-                      color: Theme.of(context).primaryColor),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text("Get Demo",
-                        style: Theme.of(context)
-                            .primaryTextTheme
-                            .bodyText1!
-                            .merge(TextStyle(color: Colors.white))),
-                  ))
+              CstmRoundedButton(
+                color: Theme.of(context).primaryColor,
+                label: "Get Demo",
+                onPressed: () {},
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 27, vertical: 8),
+              )
             ],
           ),
         ],

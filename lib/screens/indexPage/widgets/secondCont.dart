@@ -65,7 +65,7 @@ class Cstmobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // padding: const EdgeInsets.symmetric(horizontal: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 40),
       color: scaffoldSecondaryColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
