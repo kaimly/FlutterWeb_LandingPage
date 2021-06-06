@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:robigo/screens/homeScreen/HomeScreen.dart';
 import 'package:robigo/themes/theme.dart';
 import 'package:robigo/widgets/customGradientBtn.dart';
 import 'package:robigo/widgets/customTextFormField.dart';
@@ -43,7 +44,8 @@ class LoginScreen extends StatelessWidget {
                 radiusTL: 6,
                 radiusTR: 6,
                 label: "Login",
-                onPressed: () {})
+                onPressed: () =>
+                    Navigator.pushNamed(context, HomeScreen.routeName))
           ],
         ),
       ),

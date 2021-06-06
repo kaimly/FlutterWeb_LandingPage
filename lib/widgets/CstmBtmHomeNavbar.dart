@@ -4,14 +4,14 @@ import 'package:robigo/themes/theme.dart';
 import 'package:robigo/widgets/closeButton.dart';
 
 class CustomBtmNavbarHomePage extends StatelessWidget {
-  showAlertDialogg(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return OrderScreen();
-      },
-    );
-  }
+  // showAlertDialogg(BuildContext context) {
+  //   showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return OrderScreen();
+  //     },
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class CustomBtmNavbarHomePage extends StatelessWidget {
         children: [
           InkWell(
               onTap: () {
-                showAlertDialogg(context);
+                Navigator.pushNamed(context, OrderScreen.routName);
               },
               child: Container(
                 width: MediaQuery.of(context).size.width - 100,

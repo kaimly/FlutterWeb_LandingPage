@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:robigo/screens/OrdersScreen/orderScreen.dart';
 import './screens/allScreens.dart';
 
 import 'themes/theme.dart';
@@ -14,7 +15,11 @@ class MyApp extends StatelessWidget {
       title: 'Robigo',
       debugShowCheckedModeBanner: false,
       theme: themes(),
-      home: IndexPage(),
+      routes: {
+        OrderScreen.routName: (ctx) => OrderScreen(),
+        HomeScreen.routeName: (ctx) => HomeScreen()
+      },
+      home: LoginScreen(),
     );
   }
 }

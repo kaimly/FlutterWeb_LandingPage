@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomCloseButton extends StatelessWidget {
+  final bool isClose;
+  CustomCloseButton({this.isClose = true});
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -8,7 +11,7 @@ class CustomCloseButton extends StatelessWidget {
         Navigator.pop(context);
       },
       child: Image.asset(
-        "assets/images/close.png",
+        isClose ? "assets/images/close.png" : "assets/images/backbtn.png",
         scale: 2,
       ),
     );

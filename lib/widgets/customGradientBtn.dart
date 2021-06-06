@@ -3,7 +3,7 @@ import 'package:robigo/themes/theme.dart';
 
 class CustomGradientBtn extends StatelessWidget {
   final String label;
-  final Function onPressed;
+  final VoidCallback onPressed;
   final double radiusTL;
   final double radiusTR;
   final double radiusBL;
@@ -40,7 +40,7 @@ class CustomGradientBtn extends StatelessWidget {
         ),
       ),
       child: TextButton(
-        onPressed: () => onPressed,
+        onPressed: onPressed,
         child: Text(
           label,
           style: Theme.of(context)

@@ -10,11 +10,18 @@ import 'widgets/categoryWise.dart';
 import 'widgets/customSwitch.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const routeName = "/homeScreen";
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
       desktop: (ctx) => SizedBox(),
       mobile: (ctx) => Scaffold(
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {
+            Navigator.pushNamed(context, OrderScreen.routName);
+          },
+        ),
         bottomNavigationBar: CustomBtmNavbarHomePage(),
         appBar: customAppBar(context),
         body: SafeArea(
@@ -122,45 +129,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-// class CustomFoodItem extends StatelessWidget {
-//   const CustomFoodItem({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       height: 300,
-//       decoration: BoxDecoration(
-//         color: Colors.yellow,
-//         borderRadius: BorderRadius.circular(6),
-//       ),
-//       child: Column(
-//         children: [
-//           Container(
-//             // color: Colors.blue,
-//             height: 150,
-//             width: 200,
-//             child: Stack(
-//               // fit: StackFit.expand,
-//               children: [
-//                 Image.asset(
-//                   "assets/images/sample1.png",
-//                   fit: BoxFit.cover,
-//                 ),
-//                 Positioned(
-//                     left: 5, top: 5, child: foodIndicator(color: Colors.green)),
-//               ],
-//             ),
-//           ),
-//           const SizedBox(height: 10),
-//           Text("Veggies in Chilli-Garlic Sauce")
-//         ],
-//       ),
-//     );
-//   }
-// }
 
 class CustomListIteem extends StatelessWidget {
   const CustomListIteem({

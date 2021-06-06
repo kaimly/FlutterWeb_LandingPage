@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:robigo/screens/OrdersScreen/orderScreen.dart';
 import 'package:robigo/themes/theme.dart';
 import 'package:robigo/widgets/allWIdgets.dart';
 import 'package:robigo/widgets/closeButton.dart';
@@ -6,6 +7,10 @@ import 'package:robigo/widgets/closeButton.dart';
 class CustomPopUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    void onPressed() {
+      Navigator.pushNamed(context, OrderScreen.routName);
+    }
+
     return Container(
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
       alignment: Alignment.center,
@@ -129,7 +134,10 @@ class CustomPopUp extends StatelessWidget {
                   radiusTL: 0,
                   radiusTR: 0,
                   label: "Add",
-                  onPressed: () {},
+                  height: 40,
+                  onPressed: () {
+                    print("object");
+                  },
                 ),
               ],
             ),
