@@ -1,100 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:robigo/screens/indexPage/widgets/cstmFooterMobile.dart';
 
-import 'package:robigo/widgets/customBtmNavBar.dart';
+import 'package:robigo/screens/indexPage/widgets/customFooterDesk.dart';
 import './widgets/allwidgets.dart';
 
+//? LANDING PAGE
 class IndexPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
         mobile: (ctx) => Scaffold(
               appBar: customAppBarMobile(context: context),
-              drawer: CstmDrawer(),
-              body: body(),
-              bottomNavigationBar: Container(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                height: 70,
-                color: Theme.of(context).primaryColor,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Robigo",
-                      style: Theme.of(context).primaryTextTheme.headline6,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            NavBarItems(
-                              title: "Terms & Conditions",
-                            ),
-                            NavBarItems(
-                              title: "Privacy Policy",
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            NavBarItems(
-                              title: "About",
-                            ),
-                            NavBarItems(
-                              title: "Contact Us",
-                            ),
-                            NavBarItems(
-                              title: "Refund Policy",
-                            ),
-                          ],
-                        )
-                      ],
-                    )
-                  ],
-                ),
+              // drawer: CstmDrawer(),
+              drawer: SizedBox(),
+              body: Body(
+                isMobile: true,
               ),
+              // bottomNavigationBar:
             ),
         desktop: (ctx) => Scaffold(
-            appBar: customAppBarDesktop(context: context),
-            body: body(),
-            bottomNavigationBar: CustomBottomNavBar()));
+              appBar: customAppBarDesktop(context: context),
+              body: Body(
+                isMobile: false,
+              ),
+              // bottomNavigationBar: CustomBottomNavBar()
+            ));
   }
 }
 
-Widget body() {
-  return SafeArea(
-    child: SingleChildScrollView(
-      child: Column(
-        children: [
-          TopContainer(),
-          SecondContainer(),
-          CouponContainer(),
-          PaymentContainer(),
-          BottomContainer(),
-        ],
-      ),
-    ),
-  );
-}
+class Body extends StatelessWidget {
+  final bool isMobile;
 
-class NavBarItems extends StatelessWidget {
-  final String title;
-  NavBarItems({required this.title});
+  Body({required this.isMobile});
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          title,
-          style: Theme.of(context).accentTextTheme.bodyText2!,
+    return SafeArea(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            TopContainer(),
+            SecondContainer(),
+            CouponContainer(),
+            PaymentContainer(),
+            BottomContainer(),
+            isMobile ? CustomFooterMobile() : CustomFooterDsk()
+          ],
         ),
-        const SizedBox(width: 8),
-      ],
+      ),
     );
   }
 }

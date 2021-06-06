@@ -5,3 +5,5 @@ export './secondCont.dart';
 export './topCont.dart';
 export './cstmAppBar.dart';
 export './cstmDrawer.dart';
+export './customFooterDesk.dart';
+export './cstmFooterMobile.dart';

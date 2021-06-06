@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:robigo/themes/theme.dart';
 import 'package:robigo/widgets/allWIdgets.dart';
+import 'package:robigo/widgets/closeButton.dart';
 
 class CustomPopUp extends StatelessWidget {
   @override
@@ -37,18 +38,7 @@ class CustomPopUp extends StatelessWidget {
                     "assets/images/greenbox.png",
                     scale: 2,
                   )),
-              Positioned(
-                  top: 6,
-                  right: 6,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Image.asset(
-                      "assets/images/close.png",
-                      scale: 2,
-                    ),
-                  ))
+              Positioned(top: 6, right: 6, child: CustomCloseButton())
               //?redbox.png available as "asset"
             ],
           ),

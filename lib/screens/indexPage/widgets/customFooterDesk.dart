@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //* for index page
-class CustomBottomNavBar extends StatelessWidget {
+class CustomFooterDsk extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Robigo',
       debugShowCheckedModeBanner: false,
       theme: themes(),
-      home: HomeScreen(),
+      home: IndexPage(),
     );
   }
 }

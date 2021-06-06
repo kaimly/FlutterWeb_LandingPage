@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:robigo/screens/OrdersScreen/orderScreen.dart';
 import 'package:robigo/themes/theme.dart';
+import 'package:robigo/widgets/closeButton.dart';
 
 class CustomBtmNavbarHomePage extends StatelessWidget {
+  showAlertDialogg(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return OrderScreen();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -10,7 +21,9 @@ class CustomBtmNavbarHomePage extends StatelessWidget {
       child: Row(
         children: [
           InkWell(
-              onTap: () {},
+              onTap: () {
+                showAlertDialogg(context);
+              },
               child: Container(
                 width: MediaQuery.of(context).size.width - 100,
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 8),
@@ -49,19 +62,24 @@ class CustomBtmNavbarHomePage extends StatelessWidget {
           const SizedBox(
             width: 10,
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(6),
-                border:
-                    Border.all(color: Theme.of(context).accentColor, width: 2)),
-            child: Text(
-              "Menu",
-              textAlign: TextAlign.center,
-              style: Theme.of(context).accentTextTheme.bodyText1!.merge(
-                  TextStyle(
-                      color: Theme.of(context).accentColor,
-                      fontWeight: FontWeight.w500)),
+          GestureDetector(
+            onTap: () {
+              print(":");
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(6),
+                  border: Border.all(
+                      color: Theme.of(context).accentColor, width: 2)),
+              child: Text(
+                "Menu",
+                textAlign: TextAlign.center,
+                style: Theme.of(context).accentTextTheme.bodyText1!.merge(
+                    TextStyle(
+                        color: Theme.of(context).accentColor,
+                        fontWeight: FontWeight.w500)),
+              ),
             ),
           )
         ],
