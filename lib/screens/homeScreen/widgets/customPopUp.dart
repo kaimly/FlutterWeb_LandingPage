@@ -1,23 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:robigo/screens/FoodChoice/foodChoices.dart';
 import 'package:robigo/screens/OrdersScreen/orderScreen.dart';
 import 'package:robigo/themes/theme.dart';
 import 'package:robigo/widgets/allWIdgets.dart';
 import 'package:robigo/widgets/closeButton.dart';
 
 class CustomPopUp extends StatelessWidget {
+  showAlertDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return FoodChoices();
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    void onPressed() {
-      Navigator.pushNamed(context, OrderScreen.routName);
-    }
-
-    return Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
-      alignment: Alignment.center,
-      padding: EdgeInsets.only(left: 30, right: 30, top: 170),
-      // color: Colors.blue,
-      width: double.infinity,
-      child: Column(
+    return AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      contentPadding: EdgeInsets.symmetric(horizontal: 0),
+      insetPadding: EdgeInsets.symmetric(horizontal: 20),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Stack(
@@ -136,7 +141,7 @@ class CustomPopUp extends StatelessWidget {
                   label: "Add",
                   height: 40,
                   onPressed: () {
-                    print("object");
+                    showAlertDialog(context);
                   },
                 ),
               ],
