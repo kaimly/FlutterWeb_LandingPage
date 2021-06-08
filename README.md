@@ -1,3 +1,3 @@
 # robigo
 
-Robigo web with landing page
+Robigo web with responsive
