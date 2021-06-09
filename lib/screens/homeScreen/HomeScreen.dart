@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:robigo/screens/OrdersScreen/orderScreen.dart';
+import 'package:robigo/themes/theme.dart';
 
 import '../../widgets/allWIdgets.dart';
 
@@ -16,12 +17,6 @@ class HomeScreen extends StatelessWidget {
     return ScreenTypeLayout.builder(
       desktop: (ctx) => SizedBox(),
       mobile: (ctx) => Scaffold(
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () {
-            Navigator.pushNamed(context, OrderScreen.routName);
-          },
-        ),
         bottomNavigationBar: CustomBtmNavbarHomePage(),
         appBar: customAppBar(context),
         body: SafeArea(
@@ -57,9 +52,16 @@ class HomeScreen extends StatelessWidget {
                 onTap: (e) {
                   print("object");
                 },
-                defaultPadding: EdgeInsets.all(0),
+                // defaultPadding:
+                //     EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                 defaultSelected: 3,
-                values: ["All", "Spicy", "Continental", "Arabian Food"],
+                values: [
+                  "All",
+                  "Spicy",
+                  "Continental",
+                  "Arabian Food",
+                  "North Indian"
+                ],
               ),
               const SizedBox(
                 height: 10,
@@ -95,35 +97,44 @@ class HomeScreen extends StatelessWidget {
   PreferredSizeWidget customAppBar(BuildContext context) {
     return PreferredSize(
       preferredSize: Size.fromHeight(70),
-      child: AppBar(
-        backgroundColor: Theme.of(context).accentColor,
-        leadingWidth: 66,
-        leading: Container(
-          margin: EdgeInsets.only(left: 10, top: 10),
-          child: Container(
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(6)),
-            child: Icon(
-              Icons.home,
-              color: Colors.black,
-            ),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [linearGradient1, linearGradient2],
+            begin: Alignment.bottomRight,
+            end: Alignment.topLeft,
           ),
         ),
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Calicut notebook",
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            // const SizedBox(
-            //   height: 4,
-            // ),
-            Text(
-              "Kochi,Kerala",
-              style: Theme.of(context).primaryTextTheme.bodyText1,
-            ),
-          ],
+        child: AppBar(
+          backgroundColor: Colors.transparent,
+          leadingWidth: 60,
+          leading: Container(
+            margin: EdgeInsets.only(left: 10, top: 10),
+            child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(6)),
+                child: Image.asset(
+                  "assets/images/pro.png",
+                  scale: 2,
+                )),
+          ),
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Calicut notebook",
+                style: Theme.of(context).textTheme.headline6,
+              ),
+              // const SizedBox(
+              //   height: 4,
+              // ),
+              Text(
+                "Kochi,Kerala",
+                style: Theme.of(context).primaryTextTheme.bodyText1,
+              ),
+            ],
+          ),
         ),
       ),
     );

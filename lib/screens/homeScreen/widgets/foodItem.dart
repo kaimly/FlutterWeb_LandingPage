@@ -76,6 +76,7 @@ class FoodItem extends StatelessWidget {
                 //?redbox.png available as "asset"
               ],
             ),
+            const SizedBox(height: 10),
             Container(
               width: (MediaQuery.of(context).size.width / 2) - 20,
               height: fixedHeight ? 100 : null,
@@ -103,7 +104,7 @@ class FoodItem extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: Theme.of(context).textTheme.headline6!,
+                    style: Theme.of(context).textTheme.bodyText1,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                   ),

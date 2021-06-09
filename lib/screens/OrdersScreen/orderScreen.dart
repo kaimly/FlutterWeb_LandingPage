@@ -65,7 +65,7 @@ class OrderScreen extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     Text(
-                      "321",
+                      " ₹321",
                       style: Theme.of(context).textTheme.headline6,
                     ),
                   ],
@@ -126,23 +126,24 @@ class OrderItem extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Row(
-                    children: [
-                      //!counter used here
-                      Counter(),
-                      const SizedBox(
-                        width: 12,
-                      ),
-                      Text("1 x 123")
-                    ],
-                  )
+                  Counter(),
+                  // Row(
+                  //   children: [
+                  //     //!counter used here
+                  //     Counter(),
+                  //     const SizedBox(
+                  //       width: 12,
+                  //     ),
+                  //     Text("1 x  ₹123")
+                  //   ],
+                  // )
                 ],
               ),
             ),
             Expanded(
                 flex: 2,
                 child: Text(
-                  "#1263",
+                  " ₹1263",
                   textAlign: TextAlign.right,
                   style: Theme.of(context).accentTextTheme.bodyText1!.merge(
                       TextStyle(color: black, fontWeight: FontWeight.w500)),
@@ -167,55 +168,63 @@ int _itemCount = 0;
 class _CounterState extends State<Counter> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 80,
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [linearGradient1, linearGradient2],
-            begin: Alignment.centerRight,
-            end: Alignment.centerLeft,
+    return Row(
+      children: [
+        Container(
+          width: 80,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [linearGradient1, linearGradient2],
+                begin: Alignment.centerRight,
+                end: Alignment.centerLeft,
+              ),
+              borderRadius: BorderRadius.circular(30)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const SizedBox(),
+              GestureDetector(
+                child: Icon(
+                  Icons.remove,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                onTap: () {
+                  if (_itemCount == 0) return null;
+                  setState(
+                    () => _itemCount--,
+                  );
+                },
+              ),
+              CircleAvatar(
+                backgroundColor: Color.fromRGBO(0, 0, 0, 0.32),
+                radius: 12,
+                child: Text(
+                  _itemCount.toString(),
+                  style: Theme.of(context).accentTextTheme.bodyText1,
+                ),
+              ),
+              GestureDetector(
+                child: Icon(
+                  Icons.add,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                onTap: () {
+                  setState(
+                    () => _itemCount++,
+                  );
+                },
+              ),
+              const SizedBox(),
+            ],
           ),
-          borderRadius: BorderRadius.circular(30)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const SizedBox(),
-          GestureDetector(
-            child: Icon(
-              Icons.remove,
-              color: Colors.white,
-              size: 20,
-            ),
-            onTap: () {
-              if (_itemCount == 0) return null;
-              setState(
-                () => _itemCount--,
-              );
-            },
-          ),
-          CircleAvatar(
-            backgroundColor: Color.fromRGBO(0, 0, 0, 0.32),
-            radius: 12,
-            child: Text(
-              _itemCount.toString(),
-              style: Theme.of(context).accentTextTheme.bodyText1,
-            ),
-          ),
-          GestureDetector(
-            child: Icon(
-              Icons.add,
-              color: Colors.white,
-              size: 20,
-            ),
-            onTap: () {
-              setState(
-                () => _itemCount++,
-              );
-            },
-          ),
-          const SizedBox(),
-        ],
-      ),
+        ),
+        const SizedBox(
+          width: 12,
+        ),
+        Text("$_itemCount x  ₹123")
+      ],
     );
   }
 }

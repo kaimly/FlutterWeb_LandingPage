@@ -11,6 +11,7 @@ final successColor = Colors.green;
 final linearGradient1 = Color.fromRGBO(241, 159, 2, 1);
 final linearGradient2 = Color.fromRGBO(250, 201, 99, 1);
 final textformfieldfillcolor = Color.fromRGBO(232, 232, 232, 1);
+final borderColor = Color.fromRGBO(228, 228, 228, 1);
 
 ThemeData themes() {
   return ThemeData(

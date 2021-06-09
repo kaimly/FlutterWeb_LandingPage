@@ -2,19 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:robigo/themes/theme.dart';
 import 'package:robigo/widgets/allWIdgets.dart';
 import 'package:robigo/widgets/closeButton.dart';
+import 'package:robigo/widgets/customradio.dart';
 
-enum Size { one, two, three }
+import 'widgets/Sizecontain.dart';
 
 class FoodChoices extends StatelessWidget {
   final contentPadding =
-      EdgeInsets.only(top: 10, bottom: 10, left: 9, right: 9);
+      EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 9);
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       insetPadding: EdgeInsets.symmetric(horizontal: 20),
-      contentPadding: EdgeInsets.only(top: 20),
+      contentPadding: EdgeInsets.only(
+        top: 20,
+      ),
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -85,85 +88,6 @@ class FoodChoices extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class SizeContainer extends StatefulWidget {
-  @override
-  _SizeContainerState createState() => _SizeContainerState();
-}
-
-int selectedRadio = 0;
-
-class _SizeContainerState extends State<SizeContainer> {
-  setSelectedRadio(int val) {
-    setState(() {
-      selectedRadio = val;
-    });
-  }
-
-  final contentPadding =
-      EdgeInsets.only(top: 10, bottom: 10, left: 9, right: 9);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-        padding: contentPadding,
-        child: Column(
-          children: [
-            RadioListTile(
-              secondary: Text(
-                "123",
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              title: Text(
-                "Size 1",
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              value: 2,
-              groupValue: selectedRadio,
-              activeColor: Colors.blue,
-              onChanged: (val) {
-                print("Radio $val");
-                // setSelectedRadio(val);
-              },
-            ),
-            RadioListTile(
-              secondary: Text(
-                "123",
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              title: Text(
-                "Size 1",
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              value: 3,
-              groupValue: selectedRadio,
-              activeColor: Colors.blue,
-              onChanged: (val) {
-                print("Radio $val");
-                // setSelectedRadio(val);
-              },
-            ),
-            RadioListTile(
-              secondary: Text(
-                "123",
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              title: Text(
-                "Size 1",
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              value: 3,
-              groupValue: selectedRadio,
-              activeColor: Colors.blue,
-              onChanged: (val) {
-                print("Radio $val");
-                // setSelectedRadio(val);
-              },
-            ),
-          ],
-        ));
   }
 }
 

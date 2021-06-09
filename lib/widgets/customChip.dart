@@ -6,15 +6,15 @@ import 'package:robigo/themes/theme.dart';
 // ignore: must_be_immutable
 class ChipsOptions extends StatefulWidget {
   ChipsOptions({
-    required EdgeInsetsGeometry defaultPadding,
+    // required EdgeInsetsGeometry defaultPadding,
     required List<String> values,
     this.title = '',
     required this.onTap,
     required this.defaultSelected,
-  })  : _defaultPadding = defaultPadding,
-        _values = values;
+  }) : _values = values;
+  // : _defaultPadding = defaultPadding,
 
-  final EdgeInsetsGeometry _defaultPadding;
+  // final EdgeInsetsGeometry _defaultPadding;
   final List<String> _values;
   final String title;
   final Function(String) onTap;
@@ -40,49 +40,40 @@ class _ChipsOptionsState extends State<ChipsOptions> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: widget._defaultPadding,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          widget.title.isEmpty
-              ? const SizedBox()
-              : Text(widget.title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyText1!
-                      .merge(TextStyle(fontWeight: FontWeight.w600))),
-          const SizedBox(height: 10),
-          Wrap(
-            spacing: 10.0,
-            children: widget._values
-                .map((e) => e == _chossen
-                    ? Container(
+    return Container(
+      height: 33,
+      padding: EdgeInsets.symmetric(horizontal: 0),
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        // spacing: 10.0,
+        children: widget._values
+            .map((e) => e == _chossen
+                ? Container(
+                    margin: const EdgeInsets.only(right: 9),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 14, vertical: 7.3),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(6),
+                      color: black,
+                    ),
+                    child: Text(e, style: TextStyle(color: Colors.white)))
+                : GestureDetector(
+                    onTap: () => _onSelect(e),
+                    child: Container(
+                        margin: const EdgeInsets.only(right: 9),
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 14, vertical: 7.3),
+                            horizontal: 14, vertical: 6),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
-                          color: black,
+                          border: Border.all(
+                            color: black,
+                          ),
                         ),
-                        child: Text(e, style: TextStyle(color: Colors.white)))
-                    : GestureDetector(
-                        onTap: () => _onSelect(e),
-                        child: Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 14, vertical: 6),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(6),
-                              border: Border.all(
-                                color: black,
-                              ),
-                            ),
-                            child: Text(
-                              e,
-                              style: TextStyle(color: black),
-                            ))))
-                .toList(),
-          ),
-        ],
+                        child: Text(
+                          e,
+                          style: TextStyle(color: black),
+                        ))))
+            .toList(),
       ),
     );
   }

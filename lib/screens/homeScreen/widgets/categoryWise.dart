@@ -33,7 +33,7 @@ class CategoryWise extends StatelessWidget {
             itemBuilder: (ctx, int index) {
               return FoodItem(
                   price: 44,
-                  title: "ssfdf",
+                  title: "Oats Cocoa Macchiato",
                   image: "assets/images/sample2.png");
             },
             staggeredTileBuilder: (int index) {
