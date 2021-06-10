@@ -13,9 +13,14 @@ class LoginScreen extends StatelessWidget {
 
     return Scaffold(
         body: ScreenTypeLayout.builder(
+      tablet: (ctx) => Login(),
       desktop: (ctx) => Container(
+          // alignment: Alignment.topRight,
+          width: 400,
+          height: 400,
           // padding: EdgeInsets.symmetric(horizontal: 300),
-          margin: EdgeInsets.symmetric(horizontal: 700, vertical: 200),
+          margin: EdgeInsets.symmetric(
+              horizontal: width * 0.38, vertical: height * 0.2),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
