@@ -4,8 +4,9 @@ import 'package:robigo/screens/homeScreen/widgets/foodItem.dart';
 
 class CategoryWise extends StatelessWidget {
   final String categoryName;
+  final bool isPlatformMobile;
 
-  CategoryWise({required this.categoryName});
+  CategoryWise({required this.categoryName, this.isPlatformMobile = true});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class CategoryWise extends StatelessWidget {
             shrinkWrap: true,
             mainAxisSpacing: 18.0,
             crossAxisSpacing: 18.0,
-            crossAxisCount: 2,
+            crossAxisCount: isPlatformMobile ? 2 : 3,
             scrollDirection: Axis.vertical,
             itemCount: 4,
             itemBuilder: (ctx, int index) {

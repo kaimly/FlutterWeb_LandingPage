@@ -17,6 +17,8 @@ class CustomTextFormField extends StatelessWidget {
         }
       },
       decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
         prefixIcon: isSearchIcon ? Icon(Icons.search) : SizedBox(),
         hintText: hintText,
         border: new OutlineInputBorder(

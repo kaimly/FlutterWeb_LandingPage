@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         OrderScreen.routName: (ctx) => OrderScreen(),
         HomeScreen.routeName: (ctx) => HomeScreen()
       },
-      home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }
