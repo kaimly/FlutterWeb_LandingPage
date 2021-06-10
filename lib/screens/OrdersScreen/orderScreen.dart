@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:robigo/screens/ScratchScreen/scratchScreen.dart';
 import 'package:robigo/themes/theme.dart';
 import 'package:robigo/widgets/allWIdgets.dart';
 import 'package:robigo/widgets/closeButton.dart';
@@ -10,20 +11,22 @@ class OrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const constPadding = EdgeInsets.only(left: 20, right: 20, top: 9);
-    return Scaffold(
-        bottomNavigationBar: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 24),
-          child: CustomGradientBtn(
-            label: "Place Order",
-            onPressed: () {},
-            radiusBL: 6,
-            radiusBR: 6,
-            radiusTL: 6,
-            radiusTR: 6,
+    return SafeArea(
+      child: Scaffold(
+          bottomNavigationBar: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 24),
+            child: CustomGradientBtn(
+              label: "Place Order",
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, ScratchScren.routeName);
+              },
+              radiusBL: 6,
+              radiusBR: 6,
+              radiusTL: 6,
+              radiusTR: 6,
+            ),
           ),
-        ),
-        body: SafeArea(
-          child: SingleChildScrollView(
+          body: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,8 +75,8 @@ class OrderScreen extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-        ));
+          )),
+    );
   }
 }
 

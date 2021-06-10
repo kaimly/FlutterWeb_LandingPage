@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:robigo/screens/OrdersScreen/orderScreen.dart';
+import 'package:robigo/screens/ScratchScreen/scratchScreen.dart';
+import 'package:robigo/screens/payment/payment.dart';
 import './screens/allScreens.dart';
 
 import 'themes/theme.dart';
@@ -22,9 +24,11 @@ class MyApp extends StatelessWidget {
       theme: themes(),
       routes: {
         OrderScreen.routName: (ctx) => OrderScreen(),
-        HomeScreen.routeName: (ctx) => HomeScreen()
+        HomeScreen.routeName: (ctx) => HomeScreen(),
+        ScratchScren.routeName: (ctx) => ScratchScren(),
+        PaymentScreeen.routeName: (ctx) => PaymentScreeen()
       },
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }

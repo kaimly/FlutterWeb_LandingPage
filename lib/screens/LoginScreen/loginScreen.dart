@@ -11,35 +11,37 @@ class LoginScreen extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
-    return Scaffold(
-        body: ScreenTypeLayout.builder(
-      tablet: (ctx) => Login(),
-      desktop: (ctx) => Container(
-          // alignment: Alignment.topRight,
-          width: 400,
-          height: 400,
-          // padding: EdgeInsets.symmetric(horizontal: 300),
-          margin: EdgeInsets.symmetric(
-              horizontal: width * 0.38, vertical: height * 0.2),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: borderColor),
-            boxShadow: [
-              BoxShadow(
-                color: Color.fromRGBO(86, 140, 203, 0.12),
-                blurRadius: 97,
-                spreadRadius: 0,
-                offset: Offset(
-                  0.0,
-                  4.0,
-                ),
-              )
-            ],
-          ),
-          child: Login()),
-      mobile: (ctx) => Login(),
-    ));
+    return SafeArea(
+      child: Scaffold(
+          body: ScreenTypeLayout.builder(
+        tablet: (ctx) => Login(),
+        desktop: (ctx) => Container(
+            // alignment: Alignment.topRight,
+            width: 400,
+            height: 400,
+            // padding: EdgeInsets.symmetric(horizontal: 300),
+            margin: EdgeInsets.symmetric(
+                horizontal: width * 0.38, vertical: height * 0.2),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: borderColor),
+              boxShadow: [
+                BoxShadow(
+                  color: Color.fromRGBO(86, 140, 203, 0.12),
+                  blurRadius: 97,
+                  spreadRadius: 0,
+                  offset: Offset(
+                    0.0,
+                    4.0,
+                  ),
+                )
+              ],
+            ),
+            child: Login()),
+        mobile: (ctx) => Login(),
+      )),
+    );
   }
 }
 
@@ -47,7 +49,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
