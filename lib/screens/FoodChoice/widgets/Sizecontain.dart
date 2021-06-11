@@ -10,8 +10,7 @@ class SizeContainer extends StatefulWidget {
 Size? _selectedRadio = Size.one;
 
 class _SizeContainerState extends State<SizeContainer> {
-  final contentPadding =
-      EdgeInsets.only(top: 10, bottom: 10, left: 9, right: 9);
+  final contentPadding = EdgeInsets.only(top: 0, bottom: 0, left: 9, right: 9);
 
   @override
   Widget build(BuildContext context) {
