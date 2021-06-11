@@ -55,10 +55,7 @@ class PaymentScreeen extends StatelessWidget {
               child: CustomGradientBtn(
                 height: 40,
                 label: "Skip",
-                onPressed: () {
-                  Navigator.pushReplacementNamed(
-                      context, PaymentScreeen.routeName);
-                },
+                onPressed: () {},
               ),
             )
           ],

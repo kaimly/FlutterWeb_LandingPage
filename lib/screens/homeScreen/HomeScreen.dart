@@ -4,6 +4,7 @@ import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
 
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:robigo/screens/OrdersScreen/orderScreen.dart';
+import 'package:robigo/screens/homeScreen/widgets/desktopAppbar.dart';
 import 'package:robigo/themes/theme.dart';
 
 import '../../widgets/allWIdgets.dart';
@@ -17,199 +18,116 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
-        desktop: (ctx) => Scaffold(
-              appBar: PreferredSize(
-                preferredSize: Size.fromHeight(70),
-                child: NewGradientAppBar(
-                  // centerTitle: true,
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(left: 10, top: 8),
-                        child: Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 12, vertical: 8),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(6)),
-                            child: Image.asset(
-                              "assets/images/pro.png",
-                              scale: 2,
-                            )),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            "Calicut notebook",
-                            style: Theme.of(context).textTheme.headline6,
-                          ),
-                          // const SizedBox(
-                          //   height: 4,
-                          // ),
-                          Text(
-                            "Kochi,Kerala",
-                            style: Theme.of(context).primaryTextTheme.bodyText1,
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        width: 350,
-                      ),
-                      Container(
-                        width: 250,
-                        padding: const EdgeInsets.only(
-                          top: 20,
-                          right: 12,
-                        ),
-                        child: CustomTextFormField(
-                          hintText: "Search",
-                          isSearchIcon: true,
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(top: 10),
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(5.5)),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Image.asset(
-                              "assets/images/orders.png",
-                              scale: 2,
-                            ),
-                            Text(
-                              "Orders",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1
-                                  ?.merge(TextStyle(fontSize: 10)),
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+        desktop: (ctx) => Deskhome(), mobile: (ctx) => MobileHome());
+  }
+}
 
-                  gradient: LinearGradient(
-                      colors: [linearGradient1, linearGradient2],
-                      begin: Alignment.centerRight,
-                      end: Alignment.centerLeft),
-                ),
-              ),
-              body: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.only(top: 20, bottom: 20),
-                      // color: Colors.red,
-                      height: 180,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          CustomListIteem(isDesktop: true),
-                          CustomListIteem(isDesktop: true),
-                          CustomListIteem(isDesktop: true),
-                          CustomListIteem(isDesktop: true),
-                          CustomListIteem(isDesktop: true),
-                          CustomListIteem(isDesktop: true),
-                          CustomListIteem(isDesktop: true),
-                        ],
-                      ),
-                    ),
-                    Row(
-                      // mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        //?one item in desktop row
-                        Expanded(
-                            flex: 3,
-                            child: Row(
-                              children: [
-                                Expanded(flex: 2, child: SizedBox()),
-                                Expanded(
-                                  flex: 2,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        "Menu",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline6,
-                                      ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      CustomSideBarItem(),
-                                      CustomSideBarItem(),
-                                      CustomSideBarItem(),
-                                      CustomSideBarItem(),
-                                      CustomSideBarItem(),
-                                      CustomSideBarItem(),
-                                      CustomSideBarItem(),
-                                      CustomSideBarItem(),
-                                    ],
-                                  ),
-                                )
-                              ],
-                            )),
-                        //? second item
-                        Expanded(
-                            flex: 5,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      "Veg",
-                                      style: Theme.of(context)
-                                          .primaryTextTheme
-                                          .bodyText1,
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    CustomflutterSwitch(),
-                                  ],
-                                ),
-                                CategoryWise(
-                                  isPlatformMobile: false,
-                                  categoryName: "Spicy",
-                                ),
-                                CategoryWise(
-                                  isPlatformMobile: false,
-                                  categoryName: "Continental",
-                                ),
-                              ],
-                            )),
-                        //?3rd one
-                        Expanded(
-                            flex: 2,
-                            child: Column(
-                              children: [],
-                            ))
-                      ],
-                    )
-                  ],
-                ),
+class Deskhome extends StatelessWidget {
+  const Deskhome({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: desktopAppbar(context),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(top: 20, bottom: 20),
+              // color: Colors.red,
+              height: 180,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  CustomListIteem(isDesktop: true),
+                  CustomListIteem(isDesktop: true),
+                  CustomListIteem(isDesktop: true),
+                  CustomListIteem(isDesktop: true),
+                  CustomListIteem(isDesktop: true),
+                  CustomListIteem(isDesktop: true),
+                  CustomListIteem(isDesktop: true),
+                ],
               ),
             ),
-        mobile: (ctx) => MobileHome());
+            Row(
+              // mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                //?one item in desktop row
+                Expanded(
+                    flex: 3,
+                    child: Row(
+                      children: [
+                        Expanded(flex: 2, child: SizedBox()),
+                        Expanded(
+                          flex: 2,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Menu",
+                                style: Theme.of(context).textTheme.headline6,
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              CustomSideBarItem(),
+                              CustomSideBarItem(),
+                              CustomSideBarItem(),
+                              CustomSideBarItem(),
+                              CustomSideBarItem(),
+                              CustomSideBarItem(),
+                              CustomSideBarItem(),
+                              CustomSideBarItem(),
+                            ],
+                          ),
+                        )
+                      ],
+                    )),
+                //? second item
+                Expanded(
+                    flex: 5,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "Veg",
+                              style:
+                                  Theme.of(context).primaryTextTheme.bodyText1,
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            CustomflutterSwitch(),
+                          ],
+                        ),
+                        CategoryWise(
+                          isPlatformMobile: false,
+                          categoryName: "Spicy",
+                        ),
+                        CategoryWise(
+                          isPlatformMobile: false,
+                          categoryName: "Continental",
+                        ),
+                      ],
+                    )),
+                //?3rd one
+                Expanded(
+                    flex: 2,
+                    child: Column(
+                      children: [],
+                    ))
+              ],
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
 
