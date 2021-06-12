@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:robigo/screens/OrdersScreen/orderScreen.dart';
-import 'package:robigo/screens/ScratchScreen/scratchScreen.dart';
-import 'package:robigo/screens/payment/payment.dart';
 import './screens/allScreens.dart';
 
 import 'themes/theme.dart';
@@ -19,7 +16,7 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitDown,
     ]);
     return MaterialApp(
-      title: 'Robigo',
+      title: 'Robigo-user',
       debugShowCheckedModeBanner: false,
       theme: themes(),
       routes: {
@@ -28,7 +25,7 @@ class MyApp extends StatelessWidget {
         ScratchScren.routeName: (ctx) => ScratchScren(),
         PaymentScreeen.routeName: (ctx) => PaymentScreeen()
       },
-      home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }

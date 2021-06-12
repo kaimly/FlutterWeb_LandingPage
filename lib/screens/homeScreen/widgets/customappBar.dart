@@ -6,10 +6,7 @@ PreferredSizeWidget customAppBar(BuildContext context) {
   return PreferredSize(
     preferredSize: Size.fromHeight(70),
     child: NewGradientAppBar(
-      gradient: LinearGradient(
-          colors: [linearGradient1, linearGradient2],
-          begin: Alignment.centerRight,
-          end: Alignment.centerLeft),
+      gradient: customgradient,
       // leadingWidth: 60,
 
       leading: Container(

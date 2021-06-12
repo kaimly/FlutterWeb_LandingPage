@@ -5,6 +5,8 @@ import 'package:robigo/themes/theme.dart';
 import 'package:robigo/widgets/allWIdgets.dart';
 import 'package:robigo/widgets/closeButton.dart';
 
+import 'outlineBtn.dart';
+
 class CustomPopUp extends StatelessWidget {
   showAlertDialog(BuildContext context) {
     showDialog(
@@ -49,7 +51,7 @@ class CustomPopUp extends StatelessWidget {
                     scale: 2,
                   )),
               Positioned(top: 6, right: 6, child: CustomCloseButton())
-              //?redbox.png available as "asset"
+              //?redbox.png available in "asset"
             ],
           ),
           Container(
@@ -89,26 +91,10 @@ class CustomPopUp extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                       ),
-                      OutlinedButton(
-                          style: ButtonStyle(
-                              side: MaterialStateProperty.all<BorderSide>(
-                                  BorderSide(
-                                      color: Theme.of(context).accentColor)),
-                              shape: MaterialStateProperty.all<
-                                      RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ))),
-                          onPressed: () {},
-                          child: Text(
-                            "Watch Making Video",
-                            style: Theme.of(context)
-                                .accentTextTheme
-                                .bodyText2!
-                                .merge(TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    color: Theme.of(context).accentColor)),
-                          ))
+                      //!should be displayed only if there is any video
+                      OutlineBtn(
+                        onTap: () {},
+                      )
                     ],
                   ),
                 ),

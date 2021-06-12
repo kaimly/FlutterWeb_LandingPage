@@ -30,11 +30,7 @@ class CustomBtmNavbarHomePage extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
                   color: Colors.red,
-                  gradient: LinearGradient(
-                    colors: [linearGradient1, linearGradient2],
-                    begin: Alignment.centerRight,
-                    end: Alignment.centerLeft,
-                  ),
+                  gradient: customgradient,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

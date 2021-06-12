@@ -13,6 +13,11 @@ final linearGradient2 = Color.fromRGBO(250, 201, 99, 1);
 final textformfieldfillcolor = Color.fromRGBO(232, 232, 232, 1);
 final borderColor = Color.fromRGBO(228, 228, 228, 1);
 
+final customgradient = LinearGradient(
+    colors: [linearGradient1, linearGradient2],
+    begin: Alignment.centerRight,
+    end: Alignment.centerLeft);
+
 ThemeData themes() {
   return ThemeData(
     primarySwatch: Colors.blue,

@@ -6,6 +6,8 @@ import 'package:robigo/themes/theme.dart';
 import 'package:robigo/widgets/allWIdgets.dart';
 import 'package:scratcher/scratcher.dart';
 
+import 'bottomwidget.dart';
+
 class ScratchScren extends StatefulWidget {
   static const routeName = "scratch";
 
@@ -20,63 +22,65 @@ class _ScratchScrenState extends State<ScratchScren> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          bottomNavigationBar: bottomNavbarScratch(),
+          bottomNavigationBar: BottomNavbarScratch(),
           body: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
                 const SizedBox(
-                  height: 300,
+                  height: 250,
                 ),
-                Center(
-                  child: Container(
-                    // margin: EdgeInsets.only(left: 30),
-                    decoration: BoxDecoration(boxShadow: [
-                      BoxShadow(
-                        color: Color.fromRGBO(73, 127, 176, 0.18),
-                        blurRadius: 37,
-                        spreadRadius: -7,
-                        offset: Offset(
-                          0.0,
-                          18.0,
-                        ),
-                      )
-                    ]),
-                    // height: 200,
-                    width: 200,
-                    child: Scratcher(
-                      onThreshold: () {
-                        setState(() {
-                          isScratched = true;
-                        });
-                      },
-                      color: Colors.white,
-                      // threshold: 90,
-                      threshold: 60,
-                      accuracy: ScratchAccuracy.low,
-                      image: Image.asset(
-                        "assets/images/coupon.png",
-                        fit: BoxFit.fill,
+                Container(
+                  // margin: EdgeInsets.only(left: 30),
+                  decoration: BoxDecoration(boxShadow: [
+                    BoxShadow(
+                      color: Color.fromRGBO(73, 127, 176, 0.18),
+                      blurRadius: 37,
+                      spreadRadius: -7,
+                      offset: Offset(
+                        0.0,
+                        18.0,
                       ),
-                      child: Container(
-                        width: double.infinity,
-                        alignment: Alignment.center,
-                        height: 180,
-                        // width: MediaQuery.of(context).size.width / 2 + 100,
-                        // padding: const EdgeInsets.symmetric(vertical: 12),
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "5%",
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context)
-                                .primaryTextTheme
-                                .headline5!
-                                .merge(TextStyle(color: linearGradient2)),
-                          ),
+                    )
+                  ]),
+
+                  width: 200,
+                  child: Scratcher(
+                    onThreshold: () {
+                      setState(() {
+                        isScratched = true;
+                      });
+                    },
+                    color: Colors.white,
+                    // threshold: 90,
+                    threshold: 50,
+                    accuracy: ScratchAccuracy.low,
+                    image: Image.asset(
+                      "assets/images/coupon.png",
+                      fit: BoxFit.fill,
+                    ),
+                    child: Container(
+                      width: double.infinity,
+                      alignment: Alignment.center,
+                      height: 180,
+                      // width: MediaQuery.of(context).size.width / 2 + 100,
+                      // padding: const EdgeInsets.symmetric(vertical: 12),
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "5%",
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context)
+                              .primaryTextTheme
+                              .headline3!
+                              .merge(
+                                TextStyle(
+                                    color: linearGradient2,
+                                    fontWeight: FontWeight.w800),
+                              ),
                         ),
                       ),
                     ),
@@ -111,46 +115,6 @@ class _ScratchScrenState extends State<ScratchScren> {
               ],
             ),
           )),
-    );
-  }
-}
-
-class bottomNavbarScratch extends StatelessWidget {
-  const bottomNavbarScratch({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      height: 120,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-            colors: [linearGradient1, linearGradient2],
-            begin: Alignment.centerRight,
-            end: Alignment.centerLeft),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(
-            height: 20,
-          ),
-          Text(
-            "Scratch Card",
-            style: Theme.of(context)
-                .textTheme
-                .headline6!
-                .merge(TextStyle(fontWeight: FontWeight.w700)),
-          ),
-          const SizedBox(
-            height: 7,
-          ),
-          Text("Scratch the card above and you could earn Rewards",
-              style: Theme.of(context).textTheme.bodyText1)
-        ],
-      ),
     );
   }
 }

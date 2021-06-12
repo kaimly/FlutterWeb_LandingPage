@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:robigo/screens/homeScreen/widgets/customPopUp.dart';
+import 'package:robigo/screens/homeScreen/widgets/custompopup/customPopUp.dart';
 
 import 'package:robigo/widgets/allWIdgets.dart';
 

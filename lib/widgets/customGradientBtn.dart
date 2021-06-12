@@ -27,18 +27,13 @@ class CustomGradientBtn extends StatelessWidget {
       // padding: EdgeInsets.all(13),
       width: double.infinity,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(radiusBL),
-          bottomRight: Radius.circular(radiusBR),
-          topLeft: Radius.circular(radiusTL),
-          topRight: Radius.circular(radiusTR),
-        ),
-        gradient: LinearGradient(
-          colors: [linearGradient1, linearGradient2],
-          begin: Alignment.centerRight,
-          end: Alignment.centerLeft,
-        ),
-      ),
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(radiusBL),
+            bottomRight: Radius.circular(radiusBR),
+            topLeft: Radius.circular(radiusTL),
+            topRight: Radius.circular(radiusTR),
+          ),
+          gradient: customgradient),
       child: TextButton(
         onPressed: onPressed,
         child: Text(

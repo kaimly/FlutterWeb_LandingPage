@@ -18,74 +18,82 @@ class FoodChoices extends StatelessWidget {
       contentPadding: EdgeInsets.only(
         top: 20,
       ),
-      content: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Padding(
-            padding: contentPadding,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  flex: 3,
-                  child: Container(
-                    height: 70,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(4),
-                      child: Image.asset(
-                        "assets/images/sample1.png",
-                        fit: BoxFit.cover,
+      content: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: contentPadding,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: Container(
+                      height: 70,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: Image.asset(
+                          "assets/images/sample1.png",
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  flex: 7,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text("Indiana Veggie Burger Combo",
-                          style: Theme.of(context)
-                              .primaryTextTheme
-                              .subtitle1!
-                              .merge(TextStyle(fontSize: 14))),
-                    ],
+                  const SizedBox(
+                    width: 10,
                   ),
-                ),
-                Expanded(flex: 1, child: CustomCloseButton())
-              ],
+                  Expanded(
+                    flex: 7,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Text("Indiana Veggie Burger Combo",
+                            style: Theme.of(context)
+                                .primaryTextTheme
+                                .subtitle1!
+                                .merge(TextStyle(fontSize: 14))),
+                      ],
+                    ),
+                  ),
+                  Expanded(flex: 1, child: CustomCloseButton())
+                ],
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Heading(
-            contentPadding: contentPadding,
-            label: "Size",
-          ),
-          const SizedBox(height: 10),
-          SizeContainer(),
-          Heading(
-            contentPadding: contentPadding,
-            label: "Option",
-          ),
-          SizeContainer(),
-          CustomGradientBtn(
-            label: "Add",
-            onPressed: () {},
-            radiusTL: 0,
-            radiusTR: 0,
-          )
-        ],
+            const SizedBox(
+              height: 20,
+            ),
+            Heading(
+              contentPadding: contentPadding,
+              label: "Size",
+            ),
+            const SizedBox(height: 10),
+            SizeContainer(),
+            //? Options must inly be displayed according to the Sizes chosen
+            Heading(
+              contentPadding: contentPadding,
+              label: "Option",
+            ),
+            SizeContainer(),
+            Heading(
+              contentPadding: contentPadding,
+              label: "Add ons",
+            ),
+            SizeContainer(),
+            CustomGradientBtn(
+              label: "Add",
+              onPressed: () {},
+              radiusTL: 0,
+              radiusTR: 0,
+            ),
+          ],
+        ),
       ),
     );
   }
