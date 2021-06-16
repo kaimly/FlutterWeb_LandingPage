@@ -69,23 +69,26 @@ class FoodChoices extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Heading(
-              contentPadding: contentPadding,
-              label: "Size",
-            ),
-            const SizedBox(height: 10),
-            SizeContainer(),
-            //? Options must inly be displayed according to the Sizes chosen
-            Heading(
-              contentPadding: contentPadding,
-              label: "Option",
-            ),
-            SizeContainer(),
-            Heading(
-              contentPadding: contentPadding,
-              label: "Add ons",
-            ),
-            SizeContainer(),
+            CustomTiles(label: "Size 1"),
+            CustomTiles(label: "Size 2"),
+            CustomTiles(label: "Size 3"),
+            // Heading(
+            //   contentPadding: contentPadding,
+            //   label: "Size",
+            // ),
+            // const SizedBox(height: 10),
+            // SizeContainer(),
+            // //? Options must inly be displayed according to the Sizes chosen
+            // Heading(
+            //   contentPadding: contentPadding,
+            //   label: "Option",
+            // ),
+            // SizeContainer(),
+            // Heading(
+            //   contentPadding: contentPadding,
+            //   label: "Add ons",
+            // ),
+            // SizeContainer(),
             CustomGradientBtn(
               label: "Add",
               onPressed: () {},
@@ -112,6 +115,55 @@ class Heading extends StatelessWidget {
       child: Padding(
         padding: contentPadding,
         child: Text(label, style: Theme.of(context).textTheme.bodyText1),
+      ),
+    );
+  }
+}
+
+class CustomTiles extends StatelessWidget {
+  final String label;
+  CustomTiles({required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return ExpansionTile(
+      childrenPadding: const EdgeInsets.symmetric(horizontal: 20),
+      title: Text(
+        label,
+        style: Theme.of(context).textTheme.bodyText1,
+      ),
+      children: [
+        Options(),
+        Options(),
+        Options(),
+        Options(),
+        Options(),
+      ],
+    );
+  }
+}
+
+class Options extends StatelessWidget {
+  const Options({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            "Option 1",
+            style: Theme.of(context).primaryTextTheme.bodyText1,
+          ),
+          Text(
+            "₹123",
+            style: Theme.of(context).textTheme.bodyText1,
+          )
+        ],
       ),
     );
   }

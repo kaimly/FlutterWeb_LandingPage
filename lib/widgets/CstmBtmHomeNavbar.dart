@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:robigo/screens/OrdersScreen/orderScreen.dart';
 import 'package:robigo/themes/theme.dart';
 import 'package:robigo/widgets/closeButton.dart';
+// import 'package:velocity_x/velocity_x.dart';
 
 class CustomBtmNavbarHomePage extends StatelessWidget {
   // showAlertDialogg(BuildContext context) {
@@ -23,6 +24,7 @@ class CustomBtmNavbarHomePage extends StatelessWidget {
           InkWell(
               onTap: () {
                 Navigator.pushNamed(context, OrderScreen.routName);
+                // context.vxNav.push(Uri.parse(OrderScreen.routName));
               },
               child: Container(
                 width: MediaQuery.of(context).size.width - 100,

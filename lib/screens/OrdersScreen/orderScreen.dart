@@ -10,6 +10,10 @@ import 'widgets/orderItem.dart';
 
 class OrderScreen extends StatelessWidget {
   static const routName = "/orders";
+
+  // //! beamer package
+  // static final path = "/HotelName/table_no/orders/:id";
+
   @override
   Widget build(BuildContext context) {
     const constPadding = EdgeInsets.only(left: 20, right: 20, top: 9);

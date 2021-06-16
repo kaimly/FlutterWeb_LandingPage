@@ -11,6 +11,14 @@ import 'widgets/customappBar.dart';
 
 class HomeScreen extends StatelessWidget {
   static const routeName = "/homeScreen";
+
+  //! beamer pakage
+  // static final beamlocation = BeamPage(
+  //   key: ValueKey("home"),
+  //   child: HomeScreen(),
+  // );
+  // static final path = "/HotelName/table_no";
+
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
